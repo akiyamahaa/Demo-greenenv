@@ -1,8 +1,8 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { ErrorMessage } from "../../types/error";
+import { ErrorMassage } from "../types/error";
 
 type ErrorState = {
-  error: ErrorMessage | null;
+  error: ErrorMassage | null;
 };
 
 const initialState: ErrorState = {
@@ -13,7 +13,7 @@ const errorSlice = createSlice({
   name: "error",
   initialState,
   reducers: {
-    setError: (state, action: PayloadAction<ErrorMessage>) => {
+    setError: (state, action: PayloadAction<ErrorMassage>) => {
       state.error = action.payload;
     },
     removeError: (state) => {

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import type { TypedUseSelectorHook } from "react-redux";
 import { errorReducer } from "./error.reducer";
 import { loadingReducer } from "./loading.reducer";
-import { userReducer } from "./user.reducer";
+import userReducer from "./user.reducer";
 
 const store = configureStore({
   reducer: {
@@ -11,8 +11,14 @@ const store = configureStore({
     loading: loadingReducer,
     user: userReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        // Ignore these action types
+        ignoredActions: ["user/fetchUser"],
+      },
+    }),
 });
-// TODO: Make foodReducer to reuse 
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

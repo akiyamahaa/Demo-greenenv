@@ -8,6 +8,7 @@ import Missing from "../../pages/Missing/Missing";
 import Dashboard from "../../pages/Dashboard/Dashboard";
 import UnAuthorized from "../../pages/UnAuthorized/UnAuthorized";
 import Login from "../../pages/Auth/Login";
+import SignUp from "../../pages/Auth/SignUp";
 
 type Props = {};
 
@@ -27,6 +28,7 @@ const RouterConfig = (props: Props) => {
       <Route path="about" element={<About />} />
       <Route path="unauthorized" element={<UnAuthorized />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<SignUp />} />
 
       {/* For user */}
       <Route element={<ProtectedRoute allowedRoles={[ROLES.USER]} />}>
