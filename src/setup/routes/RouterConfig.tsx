@@ -13,6 +13,7 @@ import { useAppDispatch } from "../stores";
 import { removeLoading, setLoading } from "../stores/loading.reducer";
 import { fetchUser } from "../stores/user.reducer";
 import GuestRoute from "./GuestRoute";
+import Activity from "../../pages/Activity/Activity";
 
 type Props = {};
 
@@ -44,6 +45,7 @@ const RouterConfig = (props: Props) => {
       {/* public routes */}
       <Route path="/" element={<Home />} />
       <Route path="about" element={<About />} />
+      <Route path="activity" element={<Activity />} />
       <Route path="unauthorized" element={<UnAuthorized />} />
 
       <Route element={<GuestRoute />}>

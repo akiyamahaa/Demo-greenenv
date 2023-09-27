@@ -42,7 +42,7 @@ const Header = () => {
   };
 
   const handleMainSigninText = () => {
-    navigate("/signin");
+    navigate("/login");
   };
 
   const handleAvatarClick = () => {
