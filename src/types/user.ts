@@ -6,6 +6,7 @@ export interface IUser {
   password: string;
   rePassword?: string;
   roles: string[];
+  score: number;
 }
 
 export enum EROLES {

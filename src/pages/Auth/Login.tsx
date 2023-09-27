@@ -11,7 +11,7 @@ import { fetchUser } from "../../setup/stores/user.reducer";
 import { signInError } from "../../utils/common";
 import { removeLoading, setLoading } from "../../setup/stores/loading.reducer";
 import { setError } from "../../setup/stores/error.reducer";
-import { RootState, useAppDispatch, useAppSelector } from "../../setup/stores";
+import { useAppDispatch } from "../../setup/stores";
 import { useNavigate } from "react-router";
 
 interface Props {}
@@ -20,8 +20,6 @@ const Login = (props: Props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const user = useAppSelector((state: RootState) => state.user.user);
-  console.log("🚀 ~ file: RouterConfig.tsx:26 ~ RouterConfig ~ user:", user);
 
   const onSignIn = async () => {
     try {

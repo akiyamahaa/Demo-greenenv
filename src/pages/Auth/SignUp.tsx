@@ -58,6 +58,7 @@ const SignUp = (props: Props) => {
         id: user.uid,
         ...formData,
         roles: [ROLES.USER],
+        score: 0,
       };
       await setDoc(doc(firebaseDB, "users", user.uid), profileRegister);
       // await AsyncStorage.setItem("uid", user.uid);

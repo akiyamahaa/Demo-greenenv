@@ -9,7 +9,7 @@ import Dashboard from "../../pages/Dashboard/Dashboard";
 import UnAuthorized from "../../pages/UnAuthorized/UnAuthorized";
 import Login from "../../pages/Auth/Login";
 import SignUp from "../../pages/Auth/SignUp";
-import { RootState, useAppDispatch, useAppSelector } from "../stores";
+import { useAppDispatch } from "../stores";
 import { removeLoading, setLoading } from "../stores/loading.reducer";
 import { fetchUser } from "../stores/user.reducer";
 import GuestRoute from "./GuestRoute";
@@ -23,7 +23,6 @@ export const ROLES = {
 
 const RouterConfig = (props: Props) => {
   const dispatch = useAppDispatch();
-  const user = useAppSelector((state: RootState) => state.user.user);
 
   useEffect(() => {
     (async () => {
