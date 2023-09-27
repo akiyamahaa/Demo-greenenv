@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "tss-react/mui"; // "tss-react/mui-compat" if your project is using Typescript < 4.4
 
 type Props = {
@@ -8,6 +8,9 @@ type Props = {
 const Home = (props: Props) => {
   // const { className } = props;
   const { classes } = useStyles();
+  useEffect(() => {
+    localStorage.clear();
+  }, []);
   return <div className={classes.root}>Home</div>;
 };
 
@@ -22,5 +25,5 @@ const useStyles = makeStyles()((theme) => ({
       border: "10px solid cyan",
     },
     color: "red",
-  },  
+  },
 }));

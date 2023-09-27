@@ -12,6 +12,7 @@ import SignUp from "../../pages/Auth/SignUp";
 import { RootState, useAppDispatch, useAppSelector } from "../stores";
 import { removeLoading, setLoading } from "../stores/loading.reducer";
 import { fetchUser } from "../stores/user.reducer";
+import GuestRoute from "./GuestRoute";
 
 type Props = {};
 
@@ -23,7 +24,6 @@ export const ROLES = {
 const RouterConfig = (props: Props) => {
   const dispatch = useAppDispatch();
   const user = useAppSelector((state: RootState) => state.user.user);
-  console.log("🚀 ~ file: RouterConfig.tsx:26 ~ RouterConfig ~ user:", user);
 
   useEffect(() => {
     (async () => {
@@ -36,6 +36,7 @@ const RouterConfig = (props: Props) => {
     })();
     return () => {};
   }, []);
+
   return (
     <Routes>
       {/* Add layout */}
@@ -45,13 +46,11 @@ const RouterConfig = (props: Props) => {
       <Route path="/" element={<Home />} />
       <Route path="about" element={<About />} />
       <Route path="unauthorized" element={<UnAuthorized />} />
-      
-      {!user && (
-        <Route>
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
-        </Route>
-      )}
+
+      <Route element={<GuestRoute />}>
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
+      </Route>
 
       {/* For user */}
       <Route element={<ProtectedRoute allowedRoles={[ROLES.USER]} />}>
@@ -61,6 +60,7 @@ const RouterConfig = (props: Props) => {
       <Route element={<ProtectedRoute allowedRoles={[ROLES.ADMIN]} />}>
         <Route path="/dashboard" element={<Dashboard />} />
       </Route>
+
       {/* Catch all */}
       <Route path="*" element={<Missing />} />
     </Routes>

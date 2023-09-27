@@ -6,9 +6,7 @@ type Props = {};
 const Missing = (props: Props) => {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    navigate("/");
-  }, []);
+
   return <div>Missing</div>;
 };
 
