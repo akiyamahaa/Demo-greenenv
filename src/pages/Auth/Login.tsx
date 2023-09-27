@@ -13,12 +13,14 @@ import { removeLoading, setLoading } from "../../setup/stores/loading.reducer";
 import { setError } from "../../setup/stores/error.reducer";
 import { useAppDispatch } from "../../setup/stores";
 // import LoginButton from "../LoginButton";
+import { useNavigate } from "react-router";
 
 interface Props {}
 const Login = (props: Props) => {
   const dispatch = useAppDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const onSignIn = async () => {
     try {
@@ -29,8 +31,9 @@ const Login = (props: Props) => {
         password
       );
       const user = userCredential.user;
-      // await AsyncStorage.setItem("uid", user.uid);
+      localStorage.setItem("uid", user.uid);
       await dispatch(fetchUser(user.uid));
+      navigate("/");
     } catch (err: any) {
       const error = signInError(err, email);
       dispatch(

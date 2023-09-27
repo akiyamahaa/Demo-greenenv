@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Box, Stack, Typography } from "@mui/material";
 import logoSource from "../../assets/logo/logoGreen.png";
 import FormInput from "../../components/form/FormInput";
-import { Link } from "react-router-dom";
+import { Link, useNavigation } from "react-router-dom";
 import ButtonGradient from "../../components/form/ButtonGradient";
 import AuthLayout from "../../components/layouts/AuthLayout";
 import { convertPlaceHolderName, signUpError } from "../../utils/common";
@@ -15,6 +15,7 @@ import { firebaseAuth, firebaseDB } from "../../setup/firebase";
 import { doc, setDoc } from "firebase/firestore";
 import { fetchUser } from "../../setup/stores/user.reducer";
 import { ROLES } from "../../setup/routes/RouterConfig";
+import { useNavigate } from "react-router";
 
 interface Props {}
 
@@ -23,6 +24,7 @@ interface IFormData {
 }
 const SignUp = (props: Props) => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState<IFormData>({
     email: "",
     name: "",
@@ -59,7 +61,9 @@ const SignUp = (props: Props) => {
       };
       await setDoc(doc(firebaseDB, "users", user.uid), profileRegister);
       // await AsyncStorage.setItem("uid", user.uid);
+      localStorage.setItem("uid", user.uid);
       await dispatch(fetchUser(user.uid));
+      navigate("/");
     } catch (err: any) {
       //Check exist
       const error = signUpError(err, formData.email);

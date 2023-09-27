@@ -14,7 +14,7 @@ const firebaseConfig = {
   storageBucket: "expo-project-52c25.appspot.com",
   messagingSenderId: "461784901741",
   appId: "1:461784901741:web:ecbd269304ab32089b7764",
-  measurementId: "G-TEYQ77L0DM",
+  measurementId: "G-TEYQ77L0DM"
 };
 // Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig);

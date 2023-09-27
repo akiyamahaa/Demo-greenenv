@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router";
 
-type Props = {}
+type Props = {};
 
 const Missing = (props: Props) => {
-  return (
-    <div>Missing</div>
-  )
-}
+  const navigate = useNavigate();
 
-export default Missing
+  useEffect(() => {
+    navigate("/");
+  }, []);
+  return <div>Missing</div>;
+};
+
+export default Missing;
