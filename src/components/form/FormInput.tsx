@@ -38,6 +38,7 @@ const FormInput = (props: Props) => {
               onClick={handleClickShowPassword}
               onMouseDown={handleMouseDownPassword}
               edge="end"
+              style={{ width: 40, height: 40, marginRight: 12 }}
             >
               {showPassword ? <VisibilityOff /> : <Visibility />}
             </IconButton>

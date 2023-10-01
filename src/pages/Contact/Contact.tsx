@@ -8,7 +8,7 @@ const Contact = () => {
   const { classes } = useStyles();
 
   return (
-    <main className={classes.contactScreen}>
+    <main className={classes.root}>
       <JoinInvitation />
       <CommonQuestions />
       <CollaborationInvitation />
@@ -17,7 +17,7 @@ const Contact = () => {
 };
 
 const useStyles = makeStyles()((theme) => ({
-  contactScreen: {
+  root: {
     display: "flex",
     flexDirection: "column",
     gap: 144,

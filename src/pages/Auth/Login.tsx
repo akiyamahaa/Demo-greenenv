@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Stack, Typography } from "@mui/material";
+import { Alert, Box, Stack, Typography } from "@mui/material";
 import logoSource from "../../assets/logo/logoGreen.png";
 import FormInput from "../../components/form/FormInput";
 import { Link } from "react-router-dom";
@@ -10,7 +10,6 @@ import { firebaseAuth } from "../../setup/firebase";
 import { fetchUser } from "../../setup/stores/user.reducer";
 import { signInError } from "../../utils/common";
 import { removeLoading, setLoading } from "../../setup/stores/loading.reducer";
-import { setError } from "../../setup/stores/error.reducer";
 import { useAppDispatch } from "../../setup/stores";
 import { useNavigate } from "react-router";
 
@@ -19,6 +18,7 @@ const Login = (props: Props) => {
   const dispatch = useAppDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [err, setErr] = useState("");
   const navigate = useNavigate();
 
   const onSignIn = async () => {
@@ -35,12 +35,7 @@ const Login = (props: Props) => {
       navigate("/");
     } catch (err: any) {
       const error = signInError(err, email);
-      dispatch(
-        setError({
-          title: "ERROR",
-          message: error,
-        })
-      );
+      setErr(error);
     } finally {
       dispatch(removeLoading());
     }
@@ -48,6 +43,8 @@ const Login = (props: Props) => {
 
   return (
     <AuthLayout>
+      {/* Error */}
+      {err && <Alert severity="error">{err}</Alert>}
       {/* Logo */}
       <Box>
         <img src={logoSource} alt="auth-logo" width={80} height={96} />

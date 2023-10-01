@@ -8,40 +8,54 @@ import { useNavigate } from "react-router-dom";
 import { RootState, useAppSelector } from "../../setup/stores";
 import ButtonGradient from "../form/ButtonGradient";
 
+interface IHeaderTab {
+  title: string;
+  name: string;
+  path: string;
+}
+
+const headerTabList: IHeaderTab[] = [
+  {
+    title: "intro",
+    name: "Giới thiệu",
+    path: "/about",
+  },
+  {
+    title: "mission",
+    name: "Nhiệm vụ",
+    path: "/mission",
+  },
+  {
+    title: "activity",
+    name: "Hành động",
+    path: "/activity",
+  },
+  {
+    title: "contact",
+    name: "Liên hệ",
+    path: "/contact",
+  },
+];
+
 const Header = () => {
   const user = useAppSelector((state: RootState) => state.user.user);
-  console.log("🚀 ~ file: Header.tsx:12 ~ Header ~ user:", user);
   const pathname = window.location.pathname; //returns the current url minus the domain name
-  const [confirmLogout, setConfirmLogout] = useState(false);
   const [userBoxShowing, setUserBoxShowing] = useState(false);
+  const [headerPicked, setHeaderPicked] = useState<string>("");
 
   const navigate = useNavigate();
 
+  const handleNavigate = (option: IHeaderTab) => {
+    setHeaderPicked(option.title);
+    navigate(option.path);
+  };
+
   const handleLogoClick = () => {
+    setHeaderPicked("/");
     navigate("/");
   };
 
-  const handleAboutClick = () => {
-    navigate("/about");
-  };
-
-  const handleMissionsClick = () => {
-    navigate("/missions");
-  };
-
-  const handleActivityClick = () => {
-    navigate("/activity");
-  };
-
-  const handleExchangeClick = () => {
-    navigate("/exchange");
-  };
-
-  const handleContactClick = () => {
-    navigate("/contact");
-  };
-
-  const handleMainSigninText = () => {
+  const handleSignInScreen = () => {
     navigate("/login");
   };
 
@@ -64,33 +78,17 @@ const Header = () => {
     setUserBoxShowing(!userBoxShowing);
   };
 
-  const handleLogoutClicked = () => {
-    setConfirmLogout(true);
-    setUserBoxShowing(!userBoxShowing);
-  };
-
-  const handleNotLogout = () => {
-    setConfirmLogout(false);
-  };
-
-  const handleLogout = async (choice: number) => {
+  const handleLogout = async () => {
     try {
       localStorage.clear();
-      navigate("/");
+      window.location.reload();
     } catch (err: any) {
       console.log(err.message);
     }
-    setConfirmLogout(false);
   };
 
   return (
     <div className="header--container">
-      {/* {confirmLogout ? (
-        <ConfirmLogout
-          handleLogout={handleLogout}
-          handleNotLogout={handleNotLogout}
-        />
-      ) : null} */}
       <header className="header">
         <div className="header--nav_part">
           <div className="header--logo_container">
@@ -102,36 +100,18 @@ const Header = () => {
             />
           </div>
           <div className="header--nav_options">
-            <div className="header--option" onClick={handleAboutClick}>
-              {pathname === "/about" ? (
-                <div className="header--option_chosen"></div>
-              ) : null}
-              Giới thiệu
-            </div>
-            <div className="header--option" onClick={handleMissionsClick}>
-              {pathname === "/missions" ? (
-                <div className="header--option_chosen"></div>
-              ) : null}
-              Nhiệm vụ
-            </div>
-            <div className="header--option" onClick={handleActivityClick}>
-              {pathname === "/activity" ? (
-                <div className="header--option_chosen"></div>
-              ) : null}
-              Hành động
-            </div>
-            <div className="header--option" onClick={handleExchangeClick}>
-              {pathname === "/exchange" ? (
-                <div className="header--option_chosen"></div>
-              ) : null}
-              Đổi quà
-            </div>
-            <div className="header--option" onClick={handleContactClick}>
-              {pathname === "/contact" ? (
-                <div className="header--option_chosen"></div>
-              ) : null}
-              Liên hệ
-            </div>
+            {headerTabList.map((option) => (
+              <div
+                className="header--option"
+                onClick={() => handleNavigate(option)}
+                key={option.title}
+              >
+                {option.title === headerPicked && (
+                  <div className="header--option_chosen"></div>
+                )}
+                {option.name}
+              </div>
+            ))}
           </div>
         </div>
         {user ? (
@@ -196,7 +176,7 @@ const Header = () => {
                     </div>
                     <div
                       className="header--avatar_userbox_option header--avatar_userbox_missions"
-                      onClick={handleLogoutClicked}
+                      onClick={handleLogout}
                     >
                       Đăng xuất
                     </div>
@@ -209,7 +189,7 @@ const Header = () => {
           <div>
             <ButtonGradient
               btnText="Đăng nhập"
-              onClick={handleMainSigninText}
+              onClick={handleSignInScreen}
               style={{ padding: "8px 16px" }}
             />
           </div>

@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import plus from "./img/Group 24.svg";
 import "./Question.css";
 
-const Question = ({ question, answer }) => {
+const Question = ({ question, answer }: any) => {
   const [descriptionShowing, setDescriptionShowing] = useState(false);
 
   const handleQuestionClicked = () => {
     setDescriptionShowing(!descriptionShowing);
-  }
+  };
 
   return (
     <>

@@ -14,6 +14,10 @@ import { removeLoading, setLoading } from "../stores/loading.reducer";
 import { fetchUser } from "../stores/user.reducer";
 import GuestRoute from "./GuestRoute";
 import Activity from "../../pages/Activity/Activity";
+import Header from "../../components/layouts/Header";
+import LayoutRoute from "./LayoutRoute";
+import Contact from "../../pages/Contact/Contact";
+import Missions from "../../pages/Missions/Missions";
 
 type Props = {};
 
@@ -41,27 +45,28 @@ const RouterConfig = (props: Props) => {
     <Routes>
       {/* Add layout */}
       {/* Add error, loading */}
-
       {/* public routes */}
-      <Route path="/" element={<Home />} />
-      <Route path="about" element={<About />} />
-      <Route path="activity" element={<Activity />} />
-      <Route path="unauthorized" element={<UnAuthorized />} />
+      <Route element={<LayoutRoute />}>
+        <Route path="/" element={<Home />} />
+        <Route path="mission" element={<Missions />} />
+        <Route path="about" element={<About />} />
+        <Route path="activity" element={<Activity />} />
+        <Route path="unauthorized" element={<UnAuthorized />} />
+        <Route path="contact" element={<Contact />} />
+        {/* For user */}
+        <Route element={<ProtectedRoute allowedRoles={[ROLES.USER]} />}>
+          <Route path="/profile" element={<Profile />} />
+        </Route>
+        {/* For Admin */}
+        <Route element={<ProtectedRoute allowedRoles={[ROLES.ADMIN]} />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Route>
+      </Route>
 
       <Route element={<GuestRoute />}>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
       </Route>
-
-      {/* For user */}
-      <Route element={<ProtectedRoute allowedRoles={[ROLES.USER]} />}>
-        <Route path="/profile" element={<Profile />} />
-      </Route>
-      {/* For Admin */}
-      <Route element={<ProtectedRoute allowedRoles={[ROLES.ADMIN]} />}>
-        <Route path="/dashboard" element={<Dashboard />} />
-      </Route>
-
       {/* Catch all */}
       <Route path="*" element={<Missing />} />
     </Routes>
