@@ -11,27 +11,16 @@
   justify-content: space-between;
 }
 
-.about--images img {
-  width: 30%;
-}
-
 .about--text_container {
-  width: 100%;
+  /* width: 100%; */
   padding: 0 10%;
 }
 
-.about--who, .about--what {
-  width: 690px;
+.about--who,
+.about--what {
+  max-width: 690px;
   display: flex;
   flex-direction: column;
-}
-
-.about--who {
-  gap: 24px;
-}
-
-.about--what {
-  gap: 32px;
 }
 
 .about--headline {
@@ -42,4 +31,15 @@
 .about--text {
   font-size: 20px;
   line-height: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+  .about--text_container {
+    text-align: center;
+  }
+
+  .about {
+    gap: 72px;
+    margin: 72px 0;
+  }
 }

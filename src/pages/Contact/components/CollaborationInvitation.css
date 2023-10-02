@@ -9,7 +9,7 @@
   width: 45%;
   display: flex;
   flex-direction: column;
-  gap: 32px;  
+  gap: 32px;
 }
 
 .ci--headline {
@@ -80,8 +80,23 @@
     --brand-gradient,
     linear-gradient(90deg, #46f04e 0%, #ade34d 100%)
   );
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .ci--send_icon {
   margin-left: 8px;
+}
+
+@media only screen and (max-width: 600px) {
+  .collaborationInvitation {
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .ci--text,
+  .ci--form {
+    width: 100%;
+  }
 }

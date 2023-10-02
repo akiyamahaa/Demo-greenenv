@@ -4,7 +4,7 @@
 }
 
 .ji--content_container {
-  width: 530px;
+  max-width: 530px;
   display: flex;
   flex-direction: column;
   gap: 32px;
@@ -22,26 +22,27 @@
 
 .ji--buttons {
   display: flex;
+  flex-direction: row;
   gap: 16px;
 }
 
-button {
-  width: 255px;
-  padding: 24px 22px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: 700;
-  font-size: 15px;
-  line-height: 26px;
-  border: none;
-  border-radius: 8px;
+.ji--button {
+  width: 100%;
 }
 
-.ji--btn1 {
-  background: var(--brand-gradient, linear-gradient(90deg, #46F04E 0%, #ADE34D 100%));
+@media only screen and (max-width: 600px) {
+  .ji--content_container {
+    text-align: center;
+  }
 }
 
-.ji--btn2 {
-  background-color: rgba(31, 32, 29, 0.10);
+@media only screen and (max-width: 550px) {
+  .ji--buttons {
+    flex-direction: column;
+  }
+
+  .ji--button {
+    width: 100%;
+  }
 }
+

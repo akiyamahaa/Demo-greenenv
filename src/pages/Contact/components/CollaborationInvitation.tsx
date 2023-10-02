@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "./CollaborationInvitation.css";
 import sendIcon from "./img/end icon.svg";
 import { useState } from "react";
+import { Grid } from "@mui/material";
 
 const CollaborationInvitation = () => {
   const [colabName, setColabName] = useState("");

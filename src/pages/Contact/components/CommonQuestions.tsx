@@ -47,6 +47,7 @@ const CommonQuestions = () => {
         {ques.map((info) => (
           <div key={info.ques}>
             <Question question={info.ques} answer={info.ans} />
+            <div className="cq--dark_line"></div>
           </div>
         ))}
       </div>

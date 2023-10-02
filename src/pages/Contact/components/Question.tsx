@@ -12,7 +12,7 @@ const Question = ({ question, answer }: any) => {
   return (
     <>
       <div className="question" onClick={handleQuestionClicked}>
-        <img src={plus} alt="" className="plus" />
+        <img src={plus} alt="" className="plus"/>
         <div className="questionText">{question}</div>
       </div>
       {descriptionShowing ? (
