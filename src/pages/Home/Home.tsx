@@ -4,6 +4,8 @@ import "./Main.css";
 import gift from "./pictures/gifts.png";
 import volunteer2 from "./pictures/volunteer2.png";
 import { useNavigate } from "react-router";
+import ButtonGradient from "../../components/form/ButtonGradient";
+import { Box } from "@mui/material";
 
 type Props = {
   className?: string;
@@ -22,8 +24,7 @@ const Home = (props: Props) => {
     navigate("/contact");
   };
 
-  useEffect(() => {
-  }, []);
+  useEffect(() => {}, []);
   return (
     <main className={classes.root}>
       <div className="main--container">
@@ -37,9 +38,13 @@ const Home = (props: Props) => {
                 gia vào những phong trào môi trường tại Việt Nam.
               </div>
             </div>
-            <button className="main--thamgia" onClick={handleToContact}>
-              Tham gia cùng chúng tôi
-            </button>
+            <Box>
+              <ButtonGradient
+                btnText="Tham gia cùng chúng tôi"
+                onClick={handleToContact}
+                style={{ paddingLeft: 16, paddingRight: 16 }}
+              />
+            </Box>
           </div>
           <div className="main--challenge">
             <h3 className="main--challenge_header">Thách thức</h3>
@@ -77,12 +82,14 @@ const Home = (props: Props) => {
                     công. Quy đổi điểm thưởng để đổi lấy các phần quà hấp dẫn.
                   </div>
                 </div>
-
-                <button className="main--dennhiemvu" onClick={HandleToMissions}>
-                  Đến nhiệm vụ
-                </button>
+                <Box>
+                  <ButtonGradient
+                    btnText="Đến nhiệm vụ"
+                    onClick={HandleToMissions}
+                    style={{ paddingLeft: 48, paddingRight: 48 }}
+                  />
+                </Box>
               </div>
-
               <div className="main--right_text">
                 <img src={gift} alt="fck"></img>
               </div>

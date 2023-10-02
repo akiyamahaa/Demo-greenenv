@@ -2,7 +2,7 @@ import { Box, Stack, Typography } from "@mui/material";
 import React from "react";
 
 type Props = {};
-
+// TODO: Build UI
 const MissionCard = (props: Props) => {
   return (
     <div>
