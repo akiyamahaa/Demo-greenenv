@@ -14,7 +14,6 @@ import { removeLoading, setLoading } from "../stores/loading.reducer";
 import { fetchUser } from "../stores/user.reducer";
 import GuestRoute from "./GuestRoute";
 import Activity from "../../pages/Activity/Activity";
-import Header from "../../components/layouts/Header";
 import LayoutRoute from "./LayoutRoute";
 import Contact from "../../pages/Contact/Contact";
 import Missions from "../../pages/Missions/Missions";
