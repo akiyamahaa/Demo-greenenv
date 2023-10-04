@@ -7,6 +7,10 @@ const Missions = (props: Props) => {
   return (
     <div>
       <MissionCard />
+      <MissionCard />
+      <MissionCard />
+      <MissionCard />
+      <MissionCard />
     </div>
   );
 };
