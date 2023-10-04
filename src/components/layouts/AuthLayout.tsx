@@ -2,7 +2,6 @@ import React, { ReactNode } from "react";
 import { Box, Grid, Stack } from "@mui/material";
 import imageSource from "../../assets/image/login-bg.png";
 import { makeStyles } from "tss-react/mui";
-// import LoginButton from "../LoginButton";
 
 interface Props {
   children: ReactNode;

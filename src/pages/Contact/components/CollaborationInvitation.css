@@ -83,6 +83,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border-width: 0;
 }
 
 .ci--send_icon {

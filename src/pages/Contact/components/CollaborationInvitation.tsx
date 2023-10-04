@@ -3,6 +3,7 @@ import "./CollaborationInvitation.css";
 import sendIcon from "./img/end icon.svg";
 import { useState } from "react";
 import { Grid } from "@mui/material";
+import { contactData } from "../Contact";
 
 const CollaborationInvitation = () => {
   const [colabName, setColabName] = useState("");
@@ -13,19 +14,13 @@ const CollaborationInvitation = () => {
     <div>
       <div className="collaborationInvitation">
         <div className="ci--text">
-          <div className="ci--headline">Bạn có một dự án?</div>
+          <div className="ci--headline">{contactData.group3.title}</div>
           <div className="ci--instructions">
-            <div className="ci--instruction1">
-              Sử dụng biểu mẫu để liên hệ và đóng góp với chúng tôi. Chúng tôi
-              sẽ liên hệ với bạn khi có thể
-            </div>
-            <div className="ci--instruction2">
-              Ngoài ra, hãy liên lạc bằng cách sử dụng thông tin bên dưới.
-            </div>
+            <div className="ci--instruction1">{contactData.group3.content}</div>
           </div>
           <div className="ci--contacts">
-            <div className="ci--contact_email">greenenv@gmail.com</div>
-            <div className="ci--contact_call">(+84) 912 345 678</div>
+            <div className="ci--contact_email">{contactData.group3.gmail}</div>
+            <div className="ci--contact_call">{contactData.group3.phone}</div>
           </div>
         </div>
         <div className="ci--form">
