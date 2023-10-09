@@ -17,6 +17,7 @@ import Activity from "../../pages/Activity/Activity";
 import LayoutRoute from "./LayoutRoute";
 import Contact from "../../pages/Contact/Contact";
 import Missions from "../../pages/Missions/Missions";
+import MissionDetails from "../../pages/MissionDetails/MissionDetails";
 
 type Props = {};
 
@@ -48,14 +49,16 @@ const RouterConfig = (props: Props) => {
       <Route element={<LayoutRoute />}>
         <Route path="/" element={<Home />} />
         <Route path="mission" element={<Missions />} />
+        <Route path="details" element={<MissionDetails />} />
         <Route path="about" element={<About />} />
         <Route path="activity" element={<Activity />} />
         <Route path="unauthorized" element={<UnAuthorized />} />
         <Route path="contact" element={<Contact />} />
         {/* For user */}
-        <Route element={<ProtectedRoute allowedRoles={[ROLES.USER]} />}>
+        <Route path="/profile" element={<Profile />} />
+        {/* <Route element={<ProtectedRoute allowedRoles={[ROLES.USER]} />}>
           <Route path="/profile" element={<Profile />} />
-        </Route>
+        </Route> */}
         {/* For Admin */}
         <Route element={<ProtectedRoute allowedRoles={[ROLES.ADMIN]} />}>
           <Route path="/dashboard" element={<Dashboard />} />
