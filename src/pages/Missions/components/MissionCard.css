@@ -194,7 +194,7 @@
   }
 
   .mission--container {
-    padding: 72px 16px 16px 16px
+    padding: 72px 16px 16px 16px;
   }
 
   .mission--img {
@@ -203,4 +203,11 @@
     right: 0;
     width: 100%;
   }
+}
+button {
+  cursor: pointer;
+  width: 120px;
+}
+button:active {
+  opacity: 0.5;
 }

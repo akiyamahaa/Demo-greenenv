@@ -8,9 +8,7 @@ const Missions = (props: Props) => {
     <div style={{padding: "120px 0"}}>
       <MissionCard />
       <MissionCard />
-      <MissionCard />
-      <MissionCard />
-      <MissionCard />
+
     </div>
   );
 };
