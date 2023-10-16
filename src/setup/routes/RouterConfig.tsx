@@ -41,6 +41,14 @@ const RouterConfig = (props: Props) => {
     return () => {};
   }, []);
 
+  const MissionCards = [
+    { id: "1" },
+    { id: "2" },
+    { id: "3" },
+    { id: "4" },
+    { id: "5" },
+  ];
+
   return (
     <Routes>
       {/* Add layout */}
@@ -49,16 +57,15 @@ const RouterConfig = (props: Props) => {
       <Route element={<LayoutRoute />}>
         <Route path="/" element={<Home />} />
         <Route path="mission" element={<Missions />} />
-        <Route path="details" element={<MissionDetails />} />
+        <Route path="/mission/:id" element={<MissionDetails />} />
         <Route path="about" element={<About />} />
         <Route path="activity" element={<Activity />} />
         <Route path="unauthorized" element={<UnAuthorized />} />
         <Route path="contact" element={<Contact />} />
         {/* For user */}
-        <Route path="/profile" element={<Profile />} />
-        {/* <Route element={<ProtectedRoute allowedRoles={[ROLES.USER]} />}>
+        <Route element={<ProtectedRoute allowedRoles={[ROLES.USER]} />}>
           <Route path="/profile" element={<Profile />} />
-        </Route> */}
+        </Route>
         {/* For Admin */}
         <Route element={<ProtectedRoute allowedRoles={[ROLES.ADMIN]} />}>
           <Route path="/dashboard" element={<Dashboard />} />

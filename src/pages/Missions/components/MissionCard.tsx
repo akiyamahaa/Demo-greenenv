@@ -9,17 +9,30 @@ import checkedIcon from "./img/circle-check-solid.svg";
 import xmarkIcon from "./img/circle-xmark-solid.svg";
 import missionImg from "./img/mission-img.png";
 import "./MissionCard.css";
+import { BrowserRouter, Route, useParams, Routes } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import MissionDetails from "../../MissionDetails/MissionDetails";
 
-type Props = {};
+// get document by id firebase
+
+type Props = {
+  id: string;
+};
 // TODO: Build UI
 const MissionCard = (props: Props) => {
+  const navigate = useNavigate();
+
+  const ToDetails = () => {
+    navigate(`/mission/${props.id}`);
+  };
+
   return (
     <div className="mission">
       <div className="mission--big_container">
         <div className="mission--container">
           <div className="mission--about_part">
             <div className="mission--about_part_line1">
-              <div className="mission--title">Nhiệm vụ làm sạch</div>
+              <div className="mission--title">Nhiệm vụ làm sạch {props.id}</div>
             </div>
             <div className="mission--description">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta,
@@ -61,7 +74,10 @@ const MissionCard = (props: Props) => {
             <button className="mission--button mission--join_button">
               Tham gia
             </button>
-            <button className="mission--button mission--info_button">
+            <button
+              className="mission--button mission--info_button"
+              onClick={ToDetails}
+            >
               Thông tin
             </button>
           </div>

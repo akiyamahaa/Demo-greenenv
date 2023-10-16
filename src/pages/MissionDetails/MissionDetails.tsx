@@ -8,18 +8,26 @@ import dot1 from "./components/img/Ellipse 3.svg";
 import dot2 from "./components/img/Ellipse 4.svg";
 import dot3 from "./components/img/Ellipse 5.svg";
 import userIcon from "./components/img/user-solid.svg";
+import { useParams } from "react-router-dom";
 
-type Props = {};
+type Props = {
+  // id: string
+};
 
 // TODO: Build UI for Mission Detail
 const MissionDetails = (props: Props) => {
+
+  const param = useParams()
+  console.log(param);
+  
+
   return (
     <main className="mission-details--mission-details">
       <div className="mission-details--mission-header">
         <div className="mission-details--general-info">
           <div className="mission-details--header--first_line">
             <div className="mission-details--first_line_details">
-              <div className="mission-details--mission-title">Nhiệm vụ 3</div>
+              <div className="mission-details--mission-title">Nhiệm vụ</div>
               <div className="mission-details--mission-rewards">+50</div>
             </div>
             <div className="mission-details--volunteers_required">
