@@ -27,7 +27,7 @@
   flex-direction: column;
 }
 
-.main--chungtoi {
+.main--chungtoii {
   /* Chúng tôi là Green Env */
 
   height: 48px;
@@ -201,7 +201,7 @@
 }
 
 .main--problem2 {
-  display: flex;
+  
   width: 488px;
   flex-direction: column;
   color: #fff;

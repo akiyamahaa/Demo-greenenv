@@ -1,12 +1,8 @@
-import { Box, Stack, Typography } from "@mui/material";
 import React from "react";
 import callIcon from "./img/ic_call.png";
 import locationIcon from "./img/ic_location_on.png";
 import rewardIcon from "./img/ic_database.png";
 import userIcon from "./img/user-solid.svg";
-import pendingIcon from "./img/circle-exclamation-solid.svg";
-import checkedIcon from "./img/circle-check-solid.svg";
-import xmarkIcon from "./img/circle-xmark-solid.svg";
 import missionImg from "./img/mission-img.png";
 import "./MissionCard.css";
 import { BrowserRouter, Route, useParams, Routes } from "react-router-dom";
@@ -86,18 +82,6 @@ const MissionCard = (props: Props) => {
           </div>
         </div>
       </div>
-      {/* <Stack direction={"row"}>
-        <Stack flexBasis={"50%"}>
-          <Typography>Nhiệm vụ làm sạch</Typography>
-          <Typography>
-            Lorem ipsum dolor sit amet consectetur. Lectus ac viverra auctor in
-            pretium blandit feugiat nibh. Phasellus arcu risus vulputate risus
-            nunc fermentum. Purus vel pretium elementum parturient et in
-            suspendisse non diam. Quisque magna sed cras et in pulvinar.
-          </Typography>
-        </Stack>
-        <Box flexBasis={"50%"}></Box>
-      </Stack> */}
     </div>
   );
 };
