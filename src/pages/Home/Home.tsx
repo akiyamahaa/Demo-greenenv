@@ -5,7 +5,8 @@ import gift from "./pictures/gifts.png";
 import volunteer2 from "./pictures/volunteer2.png";
 import { useNavigate } from "react-router";
 import ButtonGradient from "../../components/form/ButtonGradient";
-import { Box } from "@mui/material";
+import { Box, Grid } from "@mui/material";
+import { CenterFocusStrong } from "@mui/icons-material";
 
 type Props = {
   className?: string;
@@ -29,23 +30,34 @@ const Home = (props: Props) => {
     <main className={classes.root}>
       <div className="main--container">
         <main>
-          <div className="main--intro">
-            <div className="main--assist">
-              <div className="main--chungtoi">Chúng tôi là Green Env</div>
-              <div className="main--mission">Nhiệm vụ của chúng tôi</div>
-              <div className="main--la">
-                là truyền cảm hứng, thúc đẩy và trao quyền cho các cá nhân tham
-                gia vào những phong trào môi trường tại Việt Nam.
-              </div>
-            </div>
-            <Box>
-              <ButtonGradient
-                btnText="Tham gia cùng chúng tôi"
-                onClick={handleToContact}
-                style={{ paddingLeft: 16, paddingRight: 16 }}
-              />
-            </Box>
-          </div>
+
+        <Box className = "main--intro">
+
+          <Grid container justifyContent={"center"} rowSpacing={12}>
+
+              
+                <Grid container className="main--assist">
+                  <Grid item md = {12} textAlign = "center" className="main--chungtoii">Chúng tôi là Green Env</Grid>
+                  <Grid item md = {12} className="main--mission">Nhiệm vụ của chúng tôi</Grid>
+                  <Grid item md = {7} xs = {12} className="main--la">
+                    là truyền cảm hứng, thúc đẩy và trao quyền cho các cá nhân tham
+                    gia vào những phong trào môi trường tại Việt Nam.
+                  </Grid>
+                </Grid>
+              
+              <Grid container justifyContent={"center"}>
+
+                <Box paddingTop={"40px"}>
+                  <ButtonGradient
+                    btnText="Tham gia cùng chúng tôi"
+                    onClick={handleToContact}
+                    style={{ paddingLeft: 16, paddingRight: 16 }}
+                    />
+                </Box>
+              </Grid>
+          </Grid>
+        </Box>
+
           <div className="main--challenge">
             <h3 className="main--challenge_header">Thách thức</h3>
             <div className="main--challenge_content">
@@ -57,6 +69,19 @@ const Home = (props: Props) => {
               đến sức khoẻ con người.
             </div>
           </div>
+
+          <Box>
+            <Grid container>
+              <Grid item md = {8}>
+                <Box className = {classes.test}>Vấn nạn ô nhiễm môi trường</Box>
+                <Box>Cần hành động ngay vì một Việt Nam xanh và sạch</Box>
+              </Grid>
+            
+              <Grid>
+
+              </Grid>
+            </Grid>
+          </Box>
 
           <div className="main--dump">
             <div className="main--problem">
@@ -126,5 +151,14 @@ const useStyles = makeStyles()((theme) => ({
     //   border: "10px solid cyan",
     // },
     // color: "red",
+  },
+
+  test: {
+    [theme.breakpoints.down("md")]: {
+      color: "black",
+      paddingTop: "50px",
+    },
+    color: "red",
+    paddingTop: "100px",
   },
 }));
