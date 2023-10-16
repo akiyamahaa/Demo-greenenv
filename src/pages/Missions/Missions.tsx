@@ -5,12 +5,10 @@ type Props = {};
 
 const Missions = (props: Props) => {
   return (
-    <div>
+    <div style={{padding: "120px 0"}}>
       <MissionCard />
       <MissionCard />
-      <MissionCard />
-      <MissionCard />
-      <MissionCard />
+
     </div>
   );
 };
