@@ -41,14 +41,6 @@ const RouterConfig = (props: Props) => {
     return () => {};
   }, []);
 
-  const MissionCards = [
-    { id: "1" },
-    { id: "2" },
-    { id: "3" },
-    { id: "4" },
-    { id: "5" },
-  ];
-
   return (
     <Routes>
       {/* Add layout */}
@@ -64,7 +56,7 @@ const RouterConfig = (props: Props) => {
         <Route path="contact" element={<Contact />} />
         {/* For user */}
         <Route element={<ProtectedRoute allowedRoles={[ROLES.USER]} />}>
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile/:id" element={<Profile />} />
         </Route>
         {/* For Admin */}
         <Route element={<ProtectedRoute allowedRoles={[ROLES.ADMIN]} />}>

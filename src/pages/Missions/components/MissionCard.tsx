@@ -5,9 +5,7 @@ import rewardIcon from "./img/ic_database.png";
 import userIcon from "./img/user-solid.svg";
 import missionImg from "./img/mission-img.png";
 import "./MissionCard.css";
-import { BrowserRouter, Route, useParams, Routes } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import MissionDetails from "../../MissionDetails/MissionDetails";
 
 // get document by id firebase
 

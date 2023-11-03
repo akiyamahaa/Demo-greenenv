@@ -1,7 +1,5 @@
 import React from "react";
 import MissionCard from "./components/MissionCard";
-import { BrowserRouter, Route, useParams, Routes } from "react-router-dom";
-import MissionDetails from "../MissionDetails/MissionDetails";
 
 type Props = {};
 
@@ -13,16 +11,10 @@ const MissionCards = [
   { id: "5" },
 ];
 
+// TODO: Make three Button to filter missions: Happening, Coming, Expired
 const Missions = (props: Props) => {
-
   return (
     <div style={{ padding: "120px 0" }}>
-      {/* <MissionCard />
-        <MissionCard />
-        <MissionCard />
-        <MissionCard />
-        <MissionCard /> */}
-
       {MissionCards.map((missionCard) => {
         return <MissionCard id={missionCard.id} />;
       })}

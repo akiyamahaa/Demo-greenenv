@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 type Props = {};
 
 const ProfileHeader = (props: Props) => {
-  const user = useAppSelector((state: RootState) => state.user.user); 
+  const user = useAppSelector((state: RootState) => state.user.user);
   const [userBoxShowing, setUserBoxShowing] = useState(false);
   const navigate = useNavigate();
 
@@ -17,12 +17,12 @@ const ProfileHeader = (props: Props) => {
   };
 
   const handleUserMenuClicked = () => {
-    navigate(`/${user?.roles[0]}`);
+    navigate(`/profile/${user?.id}`);
     setUserBoxShowing(!userBoxShowing);
   };
 
   const handleUserMissionsClicked = () => {
-    navigate(`/${user?.roles[0]}/missions`);
+    navigate(`/missions/${user?.id}`);
     setUserBoxShowing(!userBoxShowing);
   };
 
@@ -41,7 +41,7 @@ const ProfileHeader = (props: Props) => {
       console.log(err.message);
     }
   };
-  
+
   return (
     <div className="header--user_part">
       <img src={notificationsActiveIcon} alt="" />
